@@ -7,7 +7,7 @@ plugins {
 }
 
 dependencies {
-    implementation(projects.chatcontextmenu)
+    implementation(projects.sample)
     implementation(compose.desktop.currentOs)
     implementation(libs.kotlinx.coroutinesSwing)
     implementation(libs.compose.uiToolingPreview)
@@ -15,10 +15,10 @@ dependencies {
 
 compose.desktop {
     application {
-        mainClass = "com.matkurban.chatcontextmenu.sample.MainKt"
+        mainClass = "io.github.matkurban.chatcontextmenu.sample.MainKt"
         nativeDistributions {
             targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb)
-            packageName = "com.matkurban.chatcontextmenu"
+            packageName = "io.github.matkurban.chatcontextmenu"
             packageVersion = "1.0.0"
         }
     }

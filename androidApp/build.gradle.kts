@@ -13,18 +13,18 @@ kotlin {
 }
 
 dependencies {
-    implementation(projects.chatcontextmenu)
+    implementation(projects.sample)
     implementation(libs.androidx.activity.compose)
     implementation(libs.compose.uiToolingPreview)
     debugImplementation(libs.compose.uiTooling)
 }
 
 android {
-    namespace = "com.matkurban.chatcontextmenu.sample"
+    namespace = "io.github.matkurban.chatcontextmenu.sample"
     compileSdk = libs.versions.android.compileSdk.get().toInt()
 
     defaultConfig {
-        applicationId = "com.matkurban.chatcontextmenu.sample"
+        applicationId = "io.github.matkurban.chatcontextmenu.sample"
         minSdk = libs.versions.android.minSdk.get().toInt()
         targetSdk = libs.versions.android.targetSdk.get().toInt()
         versionCode = 1

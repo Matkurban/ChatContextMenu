@@ -2,9 +2,18 @@
 
 Compose Multiplatform port of the [chat_context_menu](https://github.com/Matkurban/chat_context_menu) Flutter package.
 
+## Maven
+
+```kotlin
+implementation("io.github.matkurban:chatcontextmenu:1.0.0")
+```
+
+Import from `io.github.matkurban.chatcontextmenu.ui.*`.
+
 ## Modules
 
-- `chatcontextmenu` — library (100% `commonMain`)
+- `chatcontextmenu` — published library (100% `commonMain`)
+- `sample` — demo UI (not published)
 - `androidApp` / `desktopApp` / `webApp` — sample apps
 
 ## Requirements
@@ -12,6 +21,10 @@ Compose Multiplatform port of the [chat_context_menu](https://github.com/Matkurb
 Wrap your app in `ChatContextMenuHost` before using `ChatContextMenuWrapper`:
 
 ```kotlin
+import io.github.matkurban.chatcontextmenu.ui.ChatContextMenuHost
+import io.github.matkurban.chatcontextmenu.ui.ChatContextMenuWrapper
+import io.github.matkurban.chatcontextmenu.ui.holeShape
+
 ChatContextMenuHost {
     ChatContextMenuWrapper(
         menuShape = RoundedCornerShape(10.dp),
@@ -46,6 +59,27 @@ ChatContextMenuHost {
 ./gradlew :desktopApp:run
 ./gradlew :webApp:wasmJsBrowserDevelopmentRun
 ```
+
+## Publish to Maven Central
+
+1. Verify namespace `io.github.matkurban` on [Central Portal](https://central.sonatype.com/).
+2. Copy `gradle.properties.example` values into `~/.gradle/gradle.properties` (never commit credentials).
+3. Configure GPG signing (`signing.keyId`, `signing.password`, `signing.secretKeyRingFile`).
+4. Publish:
+
+```bash
+./gradlew :chatcontextmenu:publishAllPublicationsToMavenCentralRepository
+```
+
+5. Release the deployment in Central Portal, then wait for [klibs.io](https://klibs.io/) to index the artifact.
+
+Local verification:
+
+```bash
+./gradlew :chatcontextmenu:publishToMavenLocal
+```
+
+Artifacts appear under `~/.m2/repository/io/github/matkurban/chatcontextmenu/`.
 
 ## Version alignment
 

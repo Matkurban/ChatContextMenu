@@ -1,11 +1,46 @@
 import org.jetbrains.kotlin.gradle.ExperimentalWasmDsl
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+import com.vanniktech.maven.publish.SonatypeHost
 
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.androidMultiplatformLibrary)
     alias(libs.plugins.composeMultiplatform)
     alias(libs.plugins.composeCompiler)
+    alias(libs.plugins.mavenPublish)
+}
+
+group = "io.github.matkurban"
+version = libs.versions.library.get()
+
+mavenPublishing {
+    publishToMavenCentral(SonatypeHost.CENTRAL_PORTAL)
+    if (project.findProperty("signing.keyId") != null) {
+        signAllPublications()
+    }
+    coordinates("io.github.matkurban", "chatcontextmenu", version.toString())
+    pom {
+        name.set("ChatContextMenu")
+        description.set("Compose Multiplatform chat context menu library")
+        url.set("https://github.com/Matkurban/ChatContextMenu")
+        licenses {
+            license {
+                name.set("MIT")
+                url.set("https://opensource.org/licenses/MIT")
+            }
+        }
+        developers {
+            developer {
+                id.set("matkurban")
+                name.set("Matkurban")
+            }
+        }
+        scm {
+            url.set("https://github.com/Matkurban/ChatContextMenu")
+            connection.set("scm:git:git://github.com/Matkurban/ChatContextMenu.git")
+            developerConnection.set("scm:git:ssh://git@github.com/Matkurban/ChatContextMenu.git")
+        }
+    }
 }
 
 kotlin {
@@ -35,7 +70,7 @@ kotlin {
     }
 
     android {
-        namespace = "com.matkurban.chatcontextmenu"
+        namespace = "io.github.matkurban.chatcontextmenu"
         compileSdk = libs.versions.android.compileSdk.get().toInt()
         minSdk = libs.versions.android.minSdk.get().toInt()
         compilerOptions {
@@ -49,8 +84,6 @@ kotlin {
             implementation(libs.compose.foundation)
             implementation(libs.compose.ui)
             implementation(libs.compose.material3)
-            implementation(libs.material.icons.core)
-            implementation(libs.material.icons.extended)
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)

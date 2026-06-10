@@ -23,7 +23,7 @@ kotlin {
     sourceSets {
         val webMain by creating {
             dependencies {
-                implementation(projects.chatcontextmenu)
+                implementation(projects.sample)
                 implementation(libs.compose.ui)
             }
         }

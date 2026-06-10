@@ -33,6 +33,7 @@ plugins {
 }
 
 include(":chatcontextmenu")
+include(":sample")
 include(":androidApp")
 include(":desktopApp")
 include(":webApp")
