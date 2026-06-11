@@ -1,8 +1,0 @@
-mavenCentralUsername=YOUR_CENTRAL_USERNAME
-mavenCentralPassword=YOUR_CENTRAL_TOKEN
-signing.keyId=YOUR_GPG_KEY_ID
-signing.password=YOUR_GPG_PASSPHRASE
-signing.secretKeyRingFile=/home/YOU/.gnupg/secring.gpg
-
-# Optional: auto-release after upload (default: manual release in Central Portal)
-# mavenCentralAutomaticPublishing=true

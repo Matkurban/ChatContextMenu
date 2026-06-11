@@ -14,9 +14,7 @@ version = libs.versions.library.get()
 
 mavenPublishing {
     publishToMavenCentral()
-    if (project.findProperty("signing.keyId") != null) {
-        signAllPublications()
-    }
+    signAllPublications()
     coordinates("io.github.matkurban", "chatcontextmenu", version.toString())
     pom {
         name.set("ChatContextMenu")
@@ -75,6 +73,8 @@ kotlin {
         compilerOptions {
             jvmTarget = JvmTarget.JVM_11
         }
+
+        withHostTest {}
     }
 
     sourceSets {
