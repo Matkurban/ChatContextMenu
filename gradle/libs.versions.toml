@@ -12,7 +12,7 @@ material3 = "1.11.0-alpha07"
 materialIconsCore = "1.7.3"
 junit = "4.13.2"
 mavenPublish = "0.36.0"
-library = "1.0.0"
+library = "1.0.1"
 
 [libraries]
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
