@@ -21,17 +21,9 @@ kotlin {
     }
 
     sourceSets {
-        val webMain by creating {
-            dependencies {
-                implementation(projects.sample)
-                implementation(libs.compose.ui)
-            }
-        }
-        jsMain {
-            dependsOn(webMain)
-        }
-        wasmJsMain {
-            dependsOn(webMain)
+        commonMain.dependencies {
+            implementation(projects.sample)
+            implementation(libs.compose.ui)
         }
     }
 }
