@@ -1,6 +1,7 @@
 # ChatContextMenu
 
-Compose Multiplatform port of the [chat_context_menu](https://github.com/Matkurban/chat_context_menu) Flutter package.
+Compose Multiplatform port of
+the [chat_context_menu](https://github.com/Matkurban/chat_context_menu) Flutter package.
 
 ## Maven
 
@@ -49,7 +50,8 @@ ChatContextMenuHost {
 - `modifier` — anchor wrapper
 - `menuModifier` — menu panel styling (background, padding, widthIn, shadow, etc.)
 - `menuShape` — corner shape for arrow path and layout (default `RoundedCornerShape(8.dp)`)
-- `barrierAnchorModifier` — hole bounds around anchor; use `Modifier.holeShape(Shape)` for rounded cutout
+- `barrierAnchorModifier` — hole bounds around anchor; use `Modifier.holeShape(Shape)` for rounded
+  cutout
 - `barrierColor` is optional; transparent barrier still dismisses when `barrierDismissible = true`
 
 ## Run sample
@@ -59,28 +61,3 @@ ChatContextMenuHost {
 ./gradlew :desktopApp:run
 ./gradlew :webApp:wasmJsBrowserDevelopmentRun
 ```
-
-## Publish to Maven Central
-
-1. Verify namespace `io.github.matkurban` on [Central Portal](https://central.sonatype.com/).
-2. Copy `gradle.properties.example` values into `~/.gradle/gradle.properties` (never commit credentials).
-3. Configure GPG signing (`signing.keyId`, `signing.password`, `signing.secretKeyRingFile`).
-4. Publish:
-
-```bash
-./gradlew :chatcontextmenu:publishAllPublicationsToMavenCentralRepository
-```
-
-5. Release the deployment in Central Portal, then wait for [klibs.io](https://klibs.io/) to index the artifact.
-
-Local verification:
-
-```bash
-./gradlew :chatcontextmenu:publishToMavenLocal
-```
-
-Artifacts appear under `~/.m2/repository/io/github/matkurban/chatcontextmenu/`.
-
-## Version alignment
-
-Gradle/Kotlin/CMP versions match the `XueHuaIM` project (Kotlin 2.4.0, CMP 1.11.1, AGP 9.2.1).
