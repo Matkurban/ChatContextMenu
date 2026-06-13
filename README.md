@@ -18,12 +18,12 @@ A Compose Multiplatform library that ports the [chat_context_menu](https://githu
 
 ## Supported Platforms
 
-| Platform | Target |
-|----------|--------|
-| Android | minSdk 24 |
-| iOS | Arm64, Simulator Arm64 |
-| Desktop | JVM |
-| Web | JS, Wasm |
+| Platform | Target                 |
+|----------|------------------------|
+| Android  | minSdk 24              |
+| iOS      | Arm64, Simulator Arm64 |
+| Desktop  | JVM                    |
+| Web      | JS, Wasm               |
 
 ## Installation
 
@@ -109,52 +109,52 @@ ChatContextMenuHost {
 
 ### Composables
 
-| Composable | Description |
-|------------|-------------|
-| `ChatContextMenuHost` | Root host that provides an overlay slot for context menus |
-| `ChatContextMenuWrapper` | Wraps an anchor widget and shows the menu on demand |
-| `ChatContextMenuVerticalWidget` | Pre-built vertical menu item layout |
-| `ChatContextMenuHorizontalWidget` | Pre-built horizontal menu item layout |
+| Composable                        | Description                                               |
+|-----------------------------------|-----------------------------------------------------------|
+| `ChatContextMenuHost`             | Root host that provides an overlay slot for context menus |
+| `ChatContextMenuWrapper`          | Wraps an anchor widget and shows the menu on demand       |
+| `ChatContextMenuVerticalWidget`   | Pre-built vertical menu item layout                       |
+| `ChatContextMenuHorizontalWidget` | Pre-built horizontal menu item layout                     |
 
 ### `ChatContextMenuWrapper` parameters
 
-| Parameter | Default | Description |
-|-----------|---------|-------------|
-| `widgetContent` | — | Anchor UI; receives `showMenu` and `hideMenu` callbacks |
-| `menuContent` | — | Menu panel content; receives `hideMenu` callback |
-| `modifier` | `Modifier` | Modifier for the anchor wrapper |
-| `menuModifier` | `Modifier` | Menu panel styling (background, padding, widthIn, shadow, etc.) |
-| `menuShape` | `RoundedCornerShape(8.dp)` | Corner shape for arrow path and layout |
-| `barrierColor` | `Color.Transparent` | Modal barrier color; transparent still dismisses when `barrierDismissible = true` |
-| `arrowHeight` | `8.dp` | Arrow height |
-| `arrowWidth` | `12.dp` | Arrow width |
-| `spacing` | `6.dp` | Gap between arrow and menu panel |
-| `transitionDurationMillis` | `150` | Open/close animation duration |
-| `onClose` | `null` | Callback invoked after menu is fully dismissed |
-| `horizontalMargin` | `10.dp` | Horizontal margin from screen edge |
-| `layoutMaxHeight` | `null` | Optional max height for menu layout |
-| `axis` | `MenuAxis.Vertical` | Menu orientation (`Vertical` or `Horizontal`) |
-| `topPadding` | `56.dp` | Top safe-area padding for layout calculation |
-| `excludeAnchorFromBarrier` | `false` | Cut a hole in the barrier around the anchor |
-| `barrierAnchorModifier` | `Modifier` | Hole bounds around anchor; use `Modifier.holeShape(Shape)` for rounded cutout |
-| `barrierDismissible` | `true` | Whether tapping the barrier dismisses the menu |
+| Parameter                  | Default                    | Description                                                                       |
+|----------------------------|----------------------------|-----------------------------------------------------------------------------------|
+| `widgetContent`            | —                          | Anchor UI; receives `showMenu` and `hideMenu` callbacks                           |
+| `menuContent`              | —                          | Menu panel content; receives `hideMenu` callback                                  |
+| `modifier`                 | `Modifier`                 | Modifier for the anchor wrapper                                                   |
+| `menuModifier`             | `Modifier`                 | Menu panel styling (background, padding, widthIn, shadow, etc.)                   |
+| `menuShape`                | `RoundedCornerShape(8.dp)` | Corner shape for arrow path and layout                                            |
+| `barrierColor`             | `Color.Transparent`        | Modal barrier color; transparent still dismisses when `barrierDismissible = true` |
+| `arrowHeight`              | `8.dp`                     | Arrow height                                                                      |
+| `arrowWidth`               | `12.dp`                    | Arrow width                                                                       |
+| `spacing`                  | `6.dp`                     | Gap between arrow and menu panel                                                  |
+| `transitionDurationMillis` | `150`                      | Open/close animation duration                                                     |
+| `onClose`                  | `null`                     | Callback invoked after menu is fully dismissed                                    |
+| `horizontalMargin`         | `10.dp`                    | Horizontal margin from screen edge                                                |
+| `layoutMaxHeight`          | `null`                     | Optional max height for menu layout                                               |
+| `axis`                     | `MenuAxis.Vertical`        | Menu orientation (`Vertical` or `Horizontal`)                                     |
+| `topPadding`               | `56.dp`                    | Top safe-area padding for layout calculation                                      |
+| `excludeAnchorFromBarrier` | `false`                    | Cut a hole in the barrier around the anchor                                       |
+| `barrierAnchorModifier`    | `Modifier`                 | Hole bounds around anchor; use `Modifier.holeShape(Shape)` for rounded cutout     |
+| `barrierDismissible`       | `true`                     | Whether tapping the barrier dismisses the menu                                    |
 
 ### Extensions
 
-| API | Description |
-|-----|-------------|
+| API                         | Description                                                        |
+|-----------------------------|--------------------------------------------------------------------|
 | `Modifier.holeShape(Shape)` | Marks a modifier chain with the shape used for barrier hole cutout |
 
 ## Sample Apps
 
 This repository includes demo apps for each platform:
 
-| Module | Description |
-|--------|-------------|
-| `sample` | Shared demo UI (`DemoApp`) |
-| `androidApp` | Android sample shell |
+| Module       | Description                         |
+|--------------|-------------------------------------|
+| `sample`     | Shared demo UI (`DemoApp`)          |
+| `androidApp` | Android sample shell                |
 | `desktopApp` | JVM desktop app via Compose Desktop |
-| `webApp` | Browser app (Wasm) |
+| `webApp`     | Browser app (Wasm)                  |
 
 Run the samples:
 
@@ -172,14 +172,13 @@ Run the samples:
 
 ## Project Structure
 
-- `chatcontextmenu` — published library (100% `commonMain`)
+- `library` — published library (100% `commonMain`)
 - `sample` — demo UI (not published)
 - `androidApp` / `desktopApp` / `webApp` — sample apps
 
 ## Related
 
 - [Original Flutter package](https://github.com/Matkurban/chat_context_menu)
-- [Maven publishing guide (BUILD.md)](BUILD.md)
 
 ## License
 
