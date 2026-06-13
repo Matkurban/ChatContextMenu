@@ -36,6 +36,7 @@ fun Shape.toBodyRoundRect(
                 bottomLeft = source.bottomLeftCornerRadius,
             )
         }
+
         else -> RoundRect(bodyRect, CornerRadius.Zero)
     }
 }
@@ -44,16 +45,14 @@ fun Shape.maxCornerRadiusPx(
     density: Density,
     layoutDirection: LayoutDirection,
 ): Float {
-    val outline = createOutline(referenceSize, layoutDirection, density)
-    return when (outline) {
-        is Outline.Rounded -> with(density) {
-            maxBorderRadius(
-                outline.roundRect.topLeftCornerRadius.x,
-                outline.roundRect.topRightCornerRadius.x,
-                outline.roundRect.bottomLeftCornerRadius.x,
-                outline.roundRect.bottomRightCornerRadius.x,
-            )
-        }
+    return when (val outline = createOutline(referenceSize, layoutDirection, density)) {
+        is Outline.Rounded -> maxBorderRadius(
+            outline.roundRect.topLeftCornerRadius.x,
+            outline.roundRect.topRightCornerRadius.x,
+            outline.roundRect.bottomLeftCornerRadius.x,
+            outline.roundRect.bottomRightCornerRadius.x,
+        )
+
         else -> 0f
     }
 }

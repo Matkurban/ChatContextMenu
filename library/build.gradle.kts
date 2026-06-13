@@ -7,6 +7,7 @@ plugins {
     alias(libs.plugins.composeMultiplatform)
     alias(libs.plugins.composeCompiler)
     alias(libs.plugins.mavenPublish)
+    signing
 }
 
 group = "io.github.matkurban"
@@ -38,6 +39,11 @@ mavenPublishing {
             developerConnection.set("scm:git:ssh://git@github.com/Matkurban/ChatContextMenu.git")
         }
     }
+}
+
+signing {
+    useGpgCmd()
+    sign(publishing.publications["kotlinMultiplatform"])
 }
 
 kotlin {
