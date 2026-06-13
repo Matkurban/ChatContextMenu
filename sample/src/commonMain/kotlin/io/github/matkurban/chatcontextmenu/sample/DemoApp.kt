@@ -5,10 +5,12 @@ import androidx.compose.foundation.gestures.detectTapGestures
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.itemsIndexed
@@ -34,7 +36,12 @@ import io.github.matkurban.chatcontextmenu.ui.ChatContextMenuWrapper
 import io.github.matkurban.chatcontextmenu.ui.MenuAxis
 import io.github.matkurban.chatcontextmenu.ui.holeShape
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.CropFree
+import androidx.compose.material.icons.filled.Group
+import androidx.compose.material.icons.filled.GroupAdd
+import androidx.compose.material.icons.filled.PersonAdd
 import androidx.compose.material.icons.outlined.MoreVert
+import androidx.compose.material3.ListItem
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -80,7 +87,37 @@ private fun ChatContextMenuDemoScreen() {
                             }
                         },
                         menuContent = { hideMenu ->
-                            ContextMenuPane(onAnyAction = hideMenu)
+                            Column(
+                                modifier = Modifier.width(IntrinsicSize.Max)
+                            ) {
+                                ListItem(
+                                    leadingContent = {
+                                        Icon(Icons.Filled.PersonAdd, contentDescription = null)
+                                    },
+                                    headlineContent = { Text(text = "添加朋友") },
+                                )
+                                ListItem(
+                                    modifier = Modifier.fillMaxWidth(),
+                                    leadingContent = {
+                                        Icon(Icons.Filled.GroupAdd, contentDescription = null)
+                                    },
+                                    headlineContent = { Text(text = "添加群聊") },
+                                )
+                                ListItem(
+                                    modifier = Modifier.fillMaxWidth(),
+                                    leadingContent = {
+                                        Icon(Icons.Filled.Group, contentDescription = null)
+                                    },
+                                    headlineContent = { Text(text = "创建群聊") },
+                                )
+                                ListItem(
+                                    modifier = Modifier.fillMaxWidth(),
+                                    leadingContent = {
+                                        Icon(Icons.Filled.CropFree, contentDescription = null)
+                                    },
+                                    headlineContent = { Text(text = "扫一扫") },
+                                )
+                            }
                         },
                     )
                 },
